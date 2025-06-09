@@ -1,13 +1,7 @@
-import { useEffect } from 'react';
-
 export default function Welcome() {
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.location.href = 'https://efch827.net/';
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, []);
+  const handleRedirect = () => {
+    window.location.href = 'https://efch827.net/';
+  };
 
   return (
     <>
@@ -17,24 +11,25 @@ export default function Welcome() {
           justify-content: center;
           align-items: center;
           height: 100vh;
-          background: linear-gradient(to bottom right, #e0f2ff, #ffffff);
+          background: linear-gradient(135deg, #e0f2ff, #fefefe);
+          padding: 1rem;
         }
 
         .welcome-box {
-          background: #fff;
-          padding: 2rem;
-          border-radius: 16px;
+          background: #ffffff;
+          padding: 2.5rem 2rem;
+          border-radius: 20px;
           text-align: center;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-          max-width: 360px;
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+          max-width: 400px;
           width: 100%;
         }
 
         .welcome-icon {
-          width: 80px;
-          height: 80px;
+          width: 90px;
+          height: 90px;
           animation: bounce 1.5s infinite;
-          margin-bottom: 1rem;
+          margin-bottom: 1.2rem;
         }
 
         @keyframes bounce {
@@ -47,38 +42,32 @@ export default function Welcome() {
         }
 
         .welcome-title {
-          font-size: 1.8rem;
-          margin-bottom: 0.5rem;
-          color: #333;
+          font-size: 2rem;
+          font-weight: bold;
+          color: #222;
+          margin-bottom: 0.6rem;
         }
 
         .welcome-text {
-          color: #666;
-          margin-bottom: 1rem;
+          font-size: 1rem;
+          color: #555;
+          margin-bottom: 1.5rem;
         }
 
-        .progress-bar {
-          width: 100%;
-          height: 10px;
-          background-color: #ddd;
-          border-radius: 5px;
-          overflow: hidden;
-        }
-
-        .progress-fill {
-          width: 100%;
-          height: 100%;
+        .welcome-button {
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+          border: none;
+          border-radius: 999px;
           background-color: #3b82f6;
-          animation: fill 3s linear forwards;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        @keyframes fill {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
+        .welcome-button:hover {
+          background-color: #2563eb;
+          transform: scale(1.05);
         }
       `}</style>
 
@@ -89,11 +78,11 @@ export default function Welcome() {
             alt="Welcome"
             className="welcome-icon"
           />
-          <h1 className="welcome-title">Welcome!</h1>
-          <p className="welcome-text">Redirecting you shortly...</p>
-          <div className="progress-bar">
-            <div className="progress-fill" />
-          </div>
+          <h1 className="welcome-title">Chào mừng bạn!</h1>
+          <p className="welcome-text">Nhấn nút bên dưới để tiếp tục.</p>
+          <button className="welcome-button" onClick={handleRedirect}>
+            Tiếp tục
+          </button>
         </div>
       </div>
     </>
